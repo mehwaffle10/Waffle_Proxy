@@ -1,5 +1,5 @@
 
-const string PROXIED_IP = "127.0.0.1:50305";
+const string PROXIED_IP = "127.0.0.1:50301";
 const string RECONNECT_IP = "127.0.0.1:50305";
 const string RECONNECT_COMMAND = "reconnect_command";
 
