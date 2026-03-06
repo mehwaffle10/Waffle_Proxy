@@ -10,13 +10,11 @@ void onInit(CRules@ this)
 
 void onCommand(CRules@ this, u8 cmd, CBitStream @params)
 {
-	if (cmd == this.getCommandID(RECONNECT_COMMAND))
+	if (isClient() && cmd == this.getCommandID(RECONNECT_COMMAND))
 	{
 		CNet@ net = getNet();
-		print("ReconnectViaProxy command received. net.joined_ip: " + net.joined_ip + " net.sv_current_ip: " + net.sv_current_ip + " net.joined_servername: " + net.joined_servername + " net.lastErrorMsg: " + net.lastErrorMsg);
 		if (net.joined_ip != "unknown" && net.joined_ip != PROXIED_IP)
 		{
-			print("Reconnecting from " + net.joined_ip + " to " + RECONNECT_IP);
 			net.SafeConnect(RECONNECT_IP);
 		}
 	}
