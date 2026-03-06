@@ -13,7 +13,7 @@ void onCommand(CRules@ this, u8 cmd, CBitStream @params)
 	if (isClient() && cmd == this.getCommandID(RECONNECT_COMMAND))
 	{
 		CNet@ net = getNet();
-		if (net.joined_ip != "unknown" && net.joined_ip != PROXIED_IP)
+		if (net.joined_ip != "unknown" && net.joined_ip != PROXIED_IP && net.joined_ip != RECONNECT_IP)
 		{
 			net.SafeConnect(RECONNECT_IP);
 		}
